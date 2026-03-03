@@ -1,0 +1,22 @@
+{
+	"name": "@by40q/global-settings-plugin",
+	"version": "1.0.0",
+	"scripts": {
+		"build": "yarn build:scripts",
+		"build:scripts": "wp-scripts build --config webpack.scripts.config.js",
+		"start": "yarn start:scripts",
+		"start:scripts": "wp-scripts start --config webpack.scripts.config.js",
+		"lint": "yarn lint:js && yarn lint:css && yarn lint:php",
+		"lint:js": "wp-scripts lint-js",
+		"lint:css": "wp-scripts lint-style",
+		"lint:php": "composer lint",
+		"lint:php:fix": "composer lint:fix"
+	},
+	"devDependencies": {
+		"@wordpress/api-fetch": "*",
+		"@wordpress/components": "*",
+		"@wordpress/element": "*",
+		"@wordpress/scripts": "^31.5.0",
+		"typescript": "^5.0.0"
+	}
+}
