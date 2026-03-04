@@ -60,9 +60,11 @@ final class Global_Settings {
 		$shortcode_settings = Field_Registry::get_shortcode_settings();
 		$fields             = Field_Registry::get_fields();
 		foreach ( $shortcode_settings as $key => $setting ) {
-			if ( empty( $setting['enabled'] ) || empty( $setting['slug'] ) ) {
+			if ( empty( $setting['enabled'] ) ) {
 				continue;
 			}
+			// Fall back to the field key when no custom slug was saved (mirrors the UI placeholder behaviour).
+			$slug = ! empty( $setting['slug'] ) ? $setting['slug'] : $key;
 			$shortcode_types = array( 'text', 'textarea', 'richtext', 'url' );
 			if ( ! isset( $fields[ $key ] ) || ! in_array( $fields[ $key ]['type'], $shortcode_types, true ) ) {
 				continue;
@@ -72,7 +74,6 @@ final class Global_Settings {
 				continue;
 			}
 			$field_type = $fields[ $key ]['type'];
-			$slug       = $setting['slug'];
 			add_shortcode(
 				$slug,
 				static function () use ( $key, $field_type ): string {
