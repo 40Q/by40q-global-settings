@@ -64,7 +64,7 @@ final class Global_Settings {
 				continue;
 			}
 			// Fall back to the field key when no custom slug was saved (mirrors the UI placeholder behaviour).
-			$slug = ! empty( $setting['slug'] ) ? $setting['slug'] : $key;
+			$slug            = ! empty( $setting['slug'] ) ? $setting['slug'] : $key;
 			$shortcode_types = array( 'text', 'textarea', 'richtext', 'url' );
 			if ( ! isset( $fields[ $key ] ) || ! in_array( $fields[ $key ]['type'], $shortcode_types, true ) ) {
 				continue;

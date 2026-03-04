@@ -20,54 +20,54 @@ add_action(
 
 		// Register the sidebar submenu page.
 		Field_Registry::register_submenu(
-			[
+			array(
 				'key'   => 'seo',
 				'label' => 'SEO',
 				'order' => 10,
-			]
+			)
 		);
 
 		// Register a tab scoped to this submenu page.
 		Field_Registry::register_tab(
-			[
+			array(
 				'key'   => 'seo_general',
 				'label' => 'General',
 				'page'  => 'seo',
 				'order' => 10,
-			]
+			)
 		);
 
 		Field_Registry::register_field(
-			[
+			array(
 				'key'         => 'seo_site_title',
 				'label'       => 'Site Title Override',
 				'type'        => 'text',
 				'tab'         => 'seo_general',
 				'default'     => '',
 				'description' => 'Replaces the default WP site title in <title> tags.',
-			]
+			)
 		);
 
 		Field_Registry::register_field(
-			[
+			array(
 				'key'         => 'seo_meta_description',
 				'label'       => 'Default Meta Description',
 				'type'        => 'textarea',
 				'tab'         => 'seo_general',
 				'default'     => '',
 				'description' => 'Fallback meta description used when a page has none set.',
-			]
+			)
 		);
 
 		Field_Registry::register_field(
-			[
+			array(
 				'key'         => 'seo_og_image',
 				'label'       => 'Default OG Image',
 				'type'        => 'image',
 				'tab'         => 'seo_general',
 				'default'     => null,
 				'description' => 'Fallback Open Graph image for social sharing.',
-			]
+			)
 		);
 	}
 );

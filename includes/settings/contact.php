@@ -16,15 +16,15 @@ add_action(
 	function () {
 
 		Field_Registry::register_tab(
-			[
+			array(
 				'key'   => 'contact',
 				'label' => 'Contact',
 				'order' => 10,
-			]
+			)
 		);
 
 		Field_Registry::register_field(
-			[
+			array(
 				'key'         => 'contact_email',
 				'label'       => 'Contact Email',
 				'type'        => 'text',
@@ -32,11 +32,11 @@ add_action(
 				'tab'         => 'contact',
 				'default'     => '',
 				'description' => 'Primary contact email address.',
-			]
+			)
 		);
 
 		Field_Registry::register_field(
-			[
+			array(
 				'key'         => 'contact_phone',
 				'label'       => 'Contact Phone',
 				'type'        => 'text',
@@ -44,18 +44,18 @@ add_action(
 				'tab'         => 'contact',
 				'default'     => '',
 				'description' => 'Primary contact phone number.',
-			]
+			)
 		);
 
 		Field_Registry::register_field(
-			[
+			array(
 				'key'         => 'contact_address',
 				'label'       => 'Address',
 				'type'        => 'textarea',
 				'tab'         => 'contact',
 				'default'     => '',
 				'description' => 'Physical address displayed in the footer.',
-			]
+			)
 		);
 	}
 );

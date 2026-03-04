@@ -20,45 +20,45 @@ add_action(
 
 		// Register the sidebar submenu page.
 		Field_Registry::register_submenu(
-			[
+			array(
 				'key'   => 'ai',
 				'label' => 'AI',
 				'order' => 15,
-			]
+			)
 		);
 
 		// Register a tab scoped to this submenu page.
 		Field_Registry::register_tab(
-			[
+			array(
 				'key'   => 'ai_general',
 				'label' => 'General',
 				'page'  => 'ai',
 				'order' => 10,
-			]
+			)
 		);
 
 		Field_Registry::register_field(
-			[
-				'key'                => 'ai_api_key',
-				'label'              => 'API Key',
-				'type'               => 'text',
-				'tab'                => 'ai_general',
-				'default'            => '',
-				'description'        => 'AI provider API key (e.g. OpenAI). Stored encrypted in wp_options.',
-				'disable_shortcode'  => true,
-			]
+			array(
+				'key'               => 'ai_api_key',
+				'label'             => 'API Key',
+				'type'              => 'text',
+				'tab'               => 'ai_general',
+				'default'           => '',
+				'description'       => 'AI provider API key (e.g. OpenAI). Stored encrypted in wp_options.',
+				'disable_shortcode' => true,
+			)
 		);
 
 		Field_Registry::register_field(
-			[
-				'key'                => 'ai_context',
-				'label'              => 'Context',
-				'type'               => 'textarea',
-				'tab'                => 'ai_general',
-				'default'            => '',
-				'description'        => 'Default system prompt or context sent with every AI request.',
-				'disable_shortcode'  => true,
-			]
+			array(
+				'key'               => 'ai_context',
+				'label'             => 'Context',
+				'type'              => 'textarea',
+				'tab'               => 'ai_general',
+				'default'           => '',
+				'description'       => 'Default system prompt or context sent with every AI request.',
+				'disable_shortcode' => true,
+			)
 		);
 	}
 );
