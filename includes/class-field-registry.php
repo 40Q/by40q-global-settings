@@ -111,7 +111,7 @@ class Field_Registry {
 		if ( ! in_array( $type, $valid_types, true ) ) {
 			_doing_it_wrong(
 				__METHOD__,
-				sprintf( 'Field type "%s" is not valid. Allowed: %s.', $type, implode( ', ', $valid_types ) ),
+				sprintf( 'Field type "%s" is not valid. Allowed: %s.', esc_html( $type ), esc_html( implode( ', ', $valid_types ) ) ),
 				'1.0.0'
 			);
 			return;
@@ -124,18 +124,18 @@ class Field_Registry {
 			: 'text';
 
 		self::$fields[ $key ] = array(
-			'key'              => $key,
-			'label'            => sanitize_text_field( $field['label'] ?? $key ),
-			'type'             => $type,
-			'tab'              => sanitize_key( $field['tab'] ?? 'general' ),
-			'default'          => $field['default'] ?? null,
-			'description'      => sanitize_text_field( $field['description'] ?? '' ),
-			'choices'          => is_array( $field['choices'] ?? null ) ? $field['choices'] : array(),
+			'key'               => $key,
+			'label'             => sanitize_text_field( $field['label'] ?? $key ),
+			'type'              => $type,
+			'tab'               => sanitize_key( $field['tab'] ?? 'general' ),
+			'default'           => $field['default'] ?? null,
+			'description'       => sanitize_text_field( $field['description'] ?? '' ),
+			'choices'           => is_array( $field['choices'] ?? null ) ? $field['choices'] : array(),
 			// HTML input type hint for text fields (e.g. 'email', 'tel', 'number').
-			'input_type'       => sanitize_key( $field['input_type'] ?? '' ),
+			'input_type'        => sanitize_key( $field['input_type'] ?? '' ),
 			// Repeater-specific.
-			'repeater_type'    => $repeater_type,
-			'sub_label'        => sanitize_text_field( $field['sub_label'] ?? '' ),
+			'repeater_type'     => $repeater_type,
+			'sub_label'         => sanitize_text_field( $field['sub_label'] ?? '' ),
 			// Disable shortcode registration for this field.
 			'disable_shortcode' => (bool) ( $field['disable_shortcode'] ?? false ),
 		);
@@ -175,7 +175,7 @@ class Field_Registry {
 		$orphan_fields = array();
 		foreach ( self::$fields as $field_key => $field ) {
 			if ( ! isset( self::$tabs[ $field['tab'] ] ) ) {
-				$field['value'] = array_key_exists( $field_key, $saved_values )
+				$field['value']  = array_key_exists( $field_key, $saved_values )
 					? $saved_values[ $field_key ]
 					: $field['default'];
 				$orphan_fields[] = $field;
