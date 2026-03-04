@@ -24,7 +24,9 @@ export default function ShortcodeControl( { enabled, slug, defaultSlug, onChange
 	const activeSlug = slug || defaultSlug;
 
 	function handleToggle( next: boolean ) {
-		onChange( next, slug );
+		// When enabling, ensure the slug is committed — fall back to defaultSlug so PHP
+		// never receives an empty slug (which would silently skip shortcode registration).
+		onChange( next, slug || ( next ? defaultSlug : '' ) );
 	}
 
 	function handleSlugChange( next: string ) {
