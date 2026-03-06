@@ -69,7 +69,7 @@ add_action(
 			array(
 				'key'               => 'ai_openai_api_key',
 				'label'             => 'OpenAI API Key',
-				'type'              => 'text',
+				'type'              => 'password',
 				'tab'               => 'ai_general',
 				'default'           => '',
 				'description'       => 'Your OpenAI API key. Get one at <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com</a>.',
@@ -94,7 +94,7 @@ add_action(
 			array(
 				'key'               => 'ai_anthropic_api_key',
 				'label'             => 'Anthropic API Key',
-				'type'              => 'text',
+				'type'              => 'password',
 				'tab'               => 'ai_general',
 				'default'           => '',
 				'description'       => 'Your Anthropic API key. Get one at <a href="https://console.anthropic.com/" target="_blank">console.anthropic.com</a>.',
@@ -131,7 +131,7 @@ add_action(
 			array(
 				'key'               => 'ai_custom_api_key',
 				'label'             => 'Custom API Key',
-				'type'              => 'text',
+				'type'              => 'password',
 				'tab'               => 'ai_general',
 				'default'           => '',
 				'description'       => 'API key for custom endpoint (if required).',
