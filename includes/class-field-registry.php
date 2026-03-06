@@ -165,6 +165,22 @@ class Field_Registry {
 				$field['value'] = array_key_exists( $field_key, $saved_values )
 					? $saved_values[ $field_key ]
 					: $field['default'];
+				// Transform snake_case keys to camelCase for JavaScript consumption.
+				if ( isset( $field['input_type'] ) ) {
+					$field['inputType'] = $field['input_type'];
+					unset( $field['input_type'] );
+				}
+				if ( isset( $field['repeater_type'] ) ) {
+					$field['repeaterType'] = $field['repeater_type'];
+					unset( $field['repeater_type'] );
+				}
+				if ( isset( $field['sub_label'] ) ) {
+					$field['subLabel'] = $field['sub_label'];
+					unset( $field['sub_label'] );
+				}
+				if ( isset( $field['disable_shortcode'] ) ) {
+					$field['disable_shortcode'] = $field['disable_shortcode'];
+				}
 				$tab_fields[]   = $field;
 			}
 			$tab['fields'] = $tab_fields;
@@ -178,6 +194,22 @@ class Field_Registry {
 				$field['value']  = array_key_exists( $field_key, $saved_values )
 					? $saved_values[ $field_key ]
 					: $field['default'];
+				// Transform snake_case keys to camelCase for JavaScript consumption.
+				if ( isset( $field['input_type'] ) ) {
+					$field['inputType'] = $field['input_type'];
+					unset( $field['input_type'] );
+				}
+				if ( isset( $field['repeater_type'] ) ) {
+					$field['repeaterType'] = $field['repeater_type'];
+					unset( $field['repeater_type'] );
+				}
+				if ( isset( $field['sub_label'] ) ) {
+					$field['subLabel'] = $field['sub_label'];
+					unset( $field['sub_label'] );
+				}
+				if ( isset( $field['disable_shortcode'] ) ) {
+					$field['disable_shortcode'] = $field['disable_shortcode'];
+				}
 				$orphan_fields[] = $field;
 			}
 		}
