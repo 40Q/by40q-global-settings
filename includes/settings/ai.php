@@ -46,9 +46,18 @@ add_action(
 				'tab'               => 'ai_general',
 				'default'           => 'openai',
 				'choices'           => array(
-					'openai'    => 'OpenAI',
-					'anthropic' => 'Anthropic',
-					'custom'    => 'Custom Endpoint',
+					array(
+						'label' => 'OpenAI',
+						'value' => 'openai',
+					),
+					array(
+						'label' => 'Anthropic',
+						'value' => 'anthropic',
+					),
+					array(
+						'label' => 'Custom Endpoint',
+						'value' => 'custom',
+					),
 				),
 				'description'       => 'Select the AI service provider for all 40Q AI tools.',
 				'disable_shortcode' => true,
